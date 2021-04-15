@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: IM
+  data:
+    mongodb:
+      uri: mongodb://101.132.35.66:27017/IM
+#      username: root
+#      password: root
+
+  redis:
+    host: 101.132.35.66
+    port: 6379
+    password: xiaohu
+    database: 0
+    timeout: 120000
+    lettuce:
+      pool:
+        max-idle: 5
+        min-idle: 0
+        max-active: 20
+        max-wait: -1
+server:
+  port: 8080
+
