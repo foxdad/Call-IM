@@ -38,7 +38,7 @@ public class CallController {
         String sourceUser = redisUtils.get(sourceId);
         //没有用户的行为
         if (!StringUtils.hasText(sourceUser)) {
-
+            return Result.failure(ResultEnum.FAILURE_SPLIT.code, ResultEnum.FAILURE_SPLIT.message);
         }
         //修改
         boolean result = redisUtils.set(sourceId, targetId);
@@ -47,6 +47,7 @@ public class CallController {
         }
         //修改失败
         return Result.success(ResultEnum.SUCCESS.code, ResultEnum.SUCCESS.message);
-
     }
+
+
 }

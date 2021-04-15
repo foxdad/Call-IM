@@ -2,6 +2,8 @@ package com.xiaohu.websocketim.handle;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.xiaohu.websocketim.entity.Message;
+import com.xiaohu.websocketim.entity.dto.MessageDto;
 import com.xiaohu.websocketim.entity.vo.MessageVo;
 import com.xiaohu.websocketim.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +61,9 @@ public class TextMessageHandle extends TextWebSocketHandler {
 
         WebSocketSession receiverSession = MAP.get(messageVo.getReceiverUser().getId());
         //持久化
-        Boolean flag = messageService.saveMessage(messageVo);
-        receiverSession.sendMessage(new TextMessage(messageVo.getMessage()));
+        Message resultMessage = messageService.saveMessage(messageVo);
+        //发送消息
+        receiverSession.sendMessage(new TextMessage(new MessageDto(resultMessage.getObjectId(),messageVo.getMessage()).toString()));
     }
 
     @Override

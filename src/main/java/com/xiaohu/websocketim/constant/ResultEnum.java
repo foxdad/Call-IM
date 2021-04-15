@@ -8,7 +8,8 @@ package com.xiaohu.websocketim.constant;
 public enum ResultEnum {
 
     SUCCESS(200,"修改成功"),
-    FAILURE(400,"修改失败");
+    FAILURE(400,"修改失败"),
+    FAILURE_SPLIT(400,"修改信息异常请联系技术");
 
     public int code;
 

@@ -3,6 +3,8 @@ package com.xiaohu.websocketim.service;
 import com.xiaohu.websocketim.entity.Message;
 import com.xiaohu.websocketim.entity.vo.MessageVo;
 
+import java.util.List;
+
 /**
  * @author xiaohu
  * @version 1.0
@@ -10,8 +12,8 @@ import com.xiaohu.websocketim.entity.vo.MessageVo;
  */
 public interface MessageService {
 
-    public Boolean saveMessage(MessageVo message);
-//    public void selectPageMessage();
+    public Message saveMessage(MessageVo message);
+    public List<Message> selectPageMessage(Long sendId, Long receiverId,Integer page ,Integer pageSize );
 //    public Boolean delectMessage();
 //    public Boolean update();
 }
